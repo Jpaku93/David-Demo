@@ -127,16 +127,16 @@
   <script>
     // Pricing calculation functions
     function calculateEssentialMonthlyPrice(contacts) {
-      return (contacts * 0.05).toFixed(2);
+      return (contacts * 1.05).toFixed(2);
     }
     function calculateEssentialAnnualPrice(contacts) {
-      return (contacts * 0.05 * 12 * 0.7).toFixed(2);
+      return (contacts * 1.05 * 12 * 0.7).toFixed(2);
     }
     function calculateProMonthlyPrice(contacts) {
-      return (contacts * 0.15).toFixed(2);
+      return (contacts * 1.15).toFixed(2);
     }
     function calculateProAnnualPrice(contacts) {
-      return (contacts * 0.15 * 12 * 0.7).toFixed(2);
+      return (contacts * 1.15 * 12 * 0.7).toFixed(2);
     }
 
     const slider = document.getElementById('contact-slider');
