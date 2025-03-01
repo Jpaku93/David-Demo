@@ -2,59 +2,163 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Dynamic Pricing</title>
+  <title>Elegant Pricing Component</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <!-- Lightweight Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
   <style>
+    /* Global Styles */
+    body {
+      margin: 0;
+      font-family: 'Roboto', sans-serif;
+      background-color: #f7f7f7;
+      color: #333;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 1rem;
+    }
+    .pricing-container {
+      background: #fff;
+      max-width: 800px;
+      width: 100%;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      padding: 2rem;
+      box-sizing: border-box;
+    }
+    h2 {
+      text-align: center;
+      margin-bottom: 1.5rem;
+    }
+    .slider-wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 2rem;
+    }
+    .slider-wrapper input[type="range"] {
+      width: 80%;
+      margin: 1rem 0;
+      -webkit-appearance: none;
+      background: #ddd;
+      height: 4px;
+      border-radius: 4px;
+      outline: none;
+    }
+    .slider-wrapper input[type="range"]::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      width: 16px;
+      height: 16px;
+      background: #4CAF50;
+      border-radius: 50%;
+      cursor: pointer;
+      border: none;
+    }
+    .slider-wrapper input[type="range"]::-moz-range-thumb {
+      width: 16px;
+      height: 16px;
+      background: #4CAF50;
+      border-radius: 50%;
+      cursor: pointer;
+      border: none;
+    }
     .pricing-cards {
       display: flex;
-      gap: 1rem;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      justify-content: center;
     }
     .card {
-      border: 1px solid #ccc;
-      padding: 1rem;
-      border-radius: 4px;
-      width: 200px;
+      flex: 1 1 300px;
+      border: 1px solid #e0e0e0;
+      border-radius: 8px;
+      padding: 1.5rem;
+      text-align: center;
+      transition: transform 0.2s ease;
+      background: #fafafa;
+    }
+    .card:hover {
+      transform: translateY(-5px);
+    }
+    .card h3 {
+      margin-bottom: 0.5rem;
+      font-size: 1.5rem;
+      color: #4CAF50;
+    }
+    .card p {
+      font-size: 1.2rem;
+      margin: 0.5rem 0;
+    }
+    .price-note {
+      font-size: 0.9rem;
+      color: #777;
     }
   </style>
 </head>
 <body>
-  <h2>How many contacts do you have?</h2>
-  <input type="range" id="contact-slider" min="50" max="10000" step="50" value="250">
-  <span id="contact-value">250</span> contacts
-
-  <div class="pricing-cards">
-    <div class="card" id="essential-card">
-      <h3>Essential</h3>
-      <p id="essential-price">$0.00 / month</p>
+  <div class="pricing-container">
+    <h2>Flexible Pricing Calculator</h2>
+    <div class="slider-wrapper">
+      <label for="contact-slider">Number of Contacts:</label>
+      <input type="range" id="contact-slider" min="50" max="10000" step="50" value="250">
+      <span id="contact-value">250</span>
     </div>
-    <div class="card" id="pro-card">
-      <h3>Pro</h3>
-      <p id="pro-price">$0.00 / month</p>
+    <div class="pricing-cards">
+      <div class="card" id="essential-card">
+        <h3>Essential</h3>
+        <p id="essential-monthly-price">$0.00 / month</p>
+        <p id="essential-annual-price">$0.00 / year <span class="price-note">(30% off)</span></p>
+        <p>Basic features for growing businesses</p>
+      </div>
+      <div class="card" id="pro-card">
+        <h3>Pro</h3>
+        <p id="pro-monthly-price">$0.00 / month</p>
+        <p id="pro-annual-price">$0.00 / year <span class="price-note">(30% off)</span></p>
+        <p>Advanced features for expanding businesses</p>
+      </div>
     </div>
   </div>
 
   <script>
-    const slider = document.getElementById('contact-slider');
-    const contactValue = document.getElementById('contact-value');
-    const essentialPriceEl = document.getElementById('essential-price');
-    const proPriceEl = document.getElementById('pro-price');
-
-    function calculateEssentialPrice(contacts) {
+    // Pricing calculation functions
+    function calculateEssentialMonthlyPrice(contacts) {
       return (contacts * 0.05).toFixed(2);
     }
-
-    function calculateProPrice(contacts) {
+    function calculateEssentialAnnualPrice(contacts) {
+      // Annual price: monthly price * 12 with 30% discount
+      return (contacts * 0.05 * 12 * 0.7).toFixed(2);
+    }
+    function calculateProMonthlyPrice(contacts) {
       return (contacts * 0.15).toFixed(2);
     }
+    function calculateProAnnualPrice(contacts) {
+      // Annual price: monthly price * 12 with 30% discount
+      return (contacts * 0.15 * 12 * 0.7).toFixed(2);
+    }
+
+    const slider = document.getElementById('contact-slider');
+    const contactValue = document.getElementById('contact-value');
+    const essentialMonthlyPriceEl = document.getElementById('essential-monthly-price');
+    const essentialAnnualPriceEl = document.getElementById('essential-annual-price');
+    const proMonthlyPriceEl = document.getElementById('pro-monthly-price');
+    const proAnnualPriceEl = document.getElementById('pro-annual-price');
 
     function updatePricing() {
       const contacts = Number(slider.value);
       contactValue.textContent = contacts;
-      essentialPriceEl.textContent = `$${calculateEssentialPrice(contacts)} / month`;
-      proPriceEl.textContent = `$${calculateProPrice(contacts)} / month`;
+      
+      essentialMonthlyPriceEl.textContent = `$${calculateEssentialMonthlyPrice(contacts)} / month`;
+      essentialAnnualPriceEl.innerHTML = `$${calculateEssentialAnnualPrice(contacts)} / year <span class="price-note">(30% off)</span>`;
+      
+      proMonthlyPriceEl.textContent = `$${calculateProMonthlyPrice(contacts)} / month`;
+      proAnnualPriceEl.innerHTML = `$${calculateProAnnualPrice(contacts)} / year <span class="price-note">(30% off)</span>`;
     }
 
     slider.addEventListener('input', updatePricing);
-    // Initial update
+    // Initialize pricing on page load
     updatePricing();
   </script>
 </body>
