@@ -1,17 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="styles.css">
-  <title>Vanilla JavaScript App</title>
+  <title>Dynamic Pricing</title>
+  <style>
+    .pricing-cards {
+      display: flex;
+      gap: 1rem;
+    }
+    .card {
+      border: 1px solid #ccc;
+      padding: 1rem;
+      border-radius: 4px;
+      width: 200px;
+    }
+  </style>
 </head>
-
 <body>
-  <main>
-    <h1>Vanilla JavaScript App</h1>
-  </main>
-</body>
+  <h2>How many contacts do you have?</h2>
+  <input type="range" id="contact-slider" min="50" max="10000" step="50" value="250">
+  <span id="contact-value">250</span> contacts
 
+  <div class="pricing-cards">
+    <div class="card" id="essential-card">
+      <h3>Essential</h3>
+      <p id="essential-price">$0.00 / month</p>
+    </div>
+    <div class="card" id="pro-card">
+      <h3>Pro</h3>
+      <p id="pro-price">$0.00 / month</p>
+    </div>
+  </div>
+
+  <script>
+    const slider = document.getElementById('contact-slider');
+    const contactValue = document.getElementById('contact-value');
+    const essentialPriceEl = document.getElementById('essential-price');
+    const proPriceEl = document.getElementById('pro-price');
+
+    function calculateEssentialPrice(contacts) {
+      return (contacts * 0.05).toFixed(2);
+    }
+
+    function calculateProPrice(contacts) {
+      return (contacts * 0.15).toFixed(2);
+    }
+
+    function updatePricing() {
+      const contacts = Number(slider.value);
+      contactValue.textContent = contacts;
+      essentialPriceEl.textContent = `$${calculateEssentialPrice(contacts)} / month`;
+      proPriceEl.textContent = `$${calculateProPrice(contacts)} / month`;
+    }
+
+    slider.addEventListener('input', updatePricing);
+    // Initial update
+    updatePricing();
+  </script>
+</body>
 </html>
