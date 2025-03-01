@@ -2,74 +2,8 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <!-- Ensures the layout scales properly on mobile devices -->
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Elegant Pricing Component - Touch Optimized</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <!-- Lightweight Google Font -->
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+  <title>Dynamic Pricing</title>
   <style>
-    /* Global Styles */
-    body {
-      margin: 0;
-      font-family: 'Roboto', sans-serif;
-      background-color: #f7f7f7;
-      color: #333;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 100vh;
-      padding: 1rem;
-    }
-    .pricing-container {
-      background: #fff;
-      max-width: 800px;
-      width: 100%;
-      border-radius: 8px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-      padding: 2rem;
-      box-sizing: border-box;
-    }
-    h2 {
-      text-align: center;
-      margin-bottom: 1.5rem;
-    }
-    .slider-wrapper {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      margin-bottom: 2rem;
-    }
-    .slider-wrapper input[type="range"] {
-      width: 90%;
-      margin: 1rem 0;
-      -webkit-appearance: none;
-      background: #ddd;
-      height: 4px;
-      border-radius: 4px;
-      outline: none;
-      touch-action: pan-x; /* Enables smooth horizontal swiping */
-    }
-    /* Increase thumb size for easier touch */
-    .slider-wrapper input[type="range"]::-webkit-slider-thumb {
-      -webkit-appearance: none;
-      width: 28px;
-      height: 28px;
-      background: #4CAF50;
-      border-radius: 50%;
-      cursor: pointer;
-      border: none;
-      margin-top: -12px; /* Center the thumb vertically */
-    }
-    .slider-wrapper input[type="range"]::-moz-range-thumb {
-      width: 28px;
-      height: 28px;
-      background: #4CAF50;
-      border-radius: 50%;
-      cursor: pointer;
-      border: none;
-    }
     .pricing-cards {
       display: flex;
       flex-wrap: wrap;
@@ -77,38 +11,10 @@
       justify-content: center;
     }
     .card {
-      flex: 1 1 300px;
-      border: 1px solid #e0e0e0;
-      border-radius: 8px;
-      padding: 1.5rem;
-      text-align: center;
-      transition: transform 0.2s ease;
-      background: #fafafa;
-    }
-    .card:hover {
-      transform: translateY(-5px);
-    }
-    .card h3 {
-      margin-bottom: 0.5rem;
-      font-size: 1.5rem;
-      color: #4CAF50;
-    }
-    .card p {
-      font-size: 1.2rem;
-      margin: 0.5rem 0;
-    }
-    .price-note {
-      font-size: 0.9rem;
-      color: #777;
-    }
-    /* Responsive adjustments for smaller devices */
-    @media (max-width: 600px) {
-      .card {
-        flex: 1 1 100%;
-      }
-      .slider-wrapper input[type="range"] {
-        width: 100%;
-      }
+      border: 1px solid #ccc;
+      padding: 1rem;
+      border-radius: 4px;
+      width: 200px;
     }
   </style>
 </head>
