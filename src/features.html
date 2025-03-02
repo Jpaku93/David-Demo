@@ -2,8 +2,9 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>MyMailService - Efficient Mailing Solutions</title>
+  <!-- Responsive meta tag -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Features - MyMailService</title>
   <!-- Import Google Font -->
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
   <style>
@@ -24,16 +25,16 @@
     
     body {
       font-family: 'Montserrat', sans-serif;
+      background-color: var(--bg-color);
       color: var(--text-color);
       line-height: 1.6;
-      background-color: var(--bg-color);
     }
     
     /* Header */
     header {
       background: var(--bg-color);
       padding: 20px 0;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+      box-shadow: 0 2px 4px rgba(0,0,0,0.05);
     }
     
     .container {
@@ -55,7 +56,6 @@
       position: relative;
     }
     
-    /* Navigation list */
     nav ul {
       list-style: none;
       display: flex;
@@ -73,7 +73,6 @@
       color: var(--primary-color);
     }
     
-    /* Mobile navigation toggle button */
     .nav-toggle {
       display: none;
     }
@@ -81,13 +80,12 @@
     /* Hero Section */
     .hero {
       position: relative;
-      height: 600px;
+      height: 300px;
       display: flex;
       align-items: center;
       justify-content: center;
       text-align: center;
-      color: #fff;
-      background: url('https://via.placeholder.com/1920x600') no-repeat center center/cover;
+      background: url('https://via.placeholder.com/1920x300') no-repeat center center/cover;
     }
     
     .hero::before {
@@ -105,74 +103,66 @@
     .hero-content {
       position: relative;
       z-index: 2;
-      max-width: 800px;
+      color: #fff;
       padding: 20px;
     }
     
-    .hero-content svg {
-      margin-bottom: 20px;
-    }
-    
-    .hero h1 {
-      font-size: 48px;
-      margin-bottom: 20px;
-    }
-    
-    .hero p {
-      font-size: 20px;
-      margin-bottom: 40px;
-    }
-    
-    .btn {
-      background: #fff;
-      color: var(--primary-color);
-      padding: 15px 30px;
-      text-decoration: none;
-      border-radius: 5px;
-      font-weight: 600;
-      transition: background 0.3s ease, transform 0.3s ease;
-    }
-    
-    .btn:hover {
-      background: var(--primary-color-dark);
-      transform: translateY(-3px);
-    }
-    
-    /* Features Section */
-    .features {
-      padding: 60px 20px;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 40px;
-      background-color: var(--bg-color);
-    }
-    
-    .feature {
-      background: #fff;
-      border-radius: 10px;
-      padding: 30px;
-      max-width: 300px;
-      text-align: center;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-    
-    .feature:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
-    }
-    
-    .feature svg {
-      margin-bottom: 20px;
-    }
-    
-    .feature h3 {
-      font-size: 22px;
+    .hero-content h1 {
+      font-size: 36px;
       margin-bottom: 10px;
     }
     
-    .feature p {
+    .hero-content p {
+      font-size: 18px;
+    }
+    
+    /* Features Section */
+    .features-section {
+      padding: 60px 20px;
+      background: var(--light-gray);
+    }
+    
+    .features-section h2 {
+      text-align: center;
+      font-size: 2.5rem;
+      margin-bottom: 40px;
+      color: var(--text-color);
+    }
+    
+    .features-cards {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+      justify-content: center;
+    }
+    
+    .feature-card {
+      background: #fff;
+      border-radius: 10px;
+      padding: 20px;
+      width: 280px;
+      text-align: center;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    
+    .feature-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+    
+    .feature-card svg {
+      margin-bottom: 15px;
+    }
+    
+    .feature-card h3 {
+      font-size: 1.5rem;
+      color: var(--primary-color);
+      margin-bottom: 10px;
+    }
+    
+    .feature-card p {
+      font-size: 1rem;
       color: #666;
     }
     
@@ -186,7 +176,6 @@
     
     /* Responsive Styles */
     @media (max-width: 768px) {
-      /* Mobile nav toggle */
       .nav-toggle {
         display: block;
         background: none;
@@ -217,14 +206,14 @@
       }
       
       .hero {
-        height: 400px;
+        height: 200px;
       }
       
-      .hero h1 {
-        font-size: 32px;
+      .hero-content h1 {
+        font-size: 28px;
       }
       
-      .hero p {
+      .hero-content p {
         font-size: 16px;
       }
     }
@@ -238,6 +227,7 @@
       <nav>
         <button class="nav-toggle" id="navToggle">&#9776;</button>
         <ul id="navList">
+          <li><a href="index.html">Home</a></li>
           <li><a href="features.html">Features</a></li>
           <li><a href="pricing.html">Pricing</a></li>
           <li><a href="solutions.html">Solutions</a></li>
@@ -250,44 +240,63 @@
   <!-- Hero Section -->
   <section class="hero">
     <div class="hero-content">
-      <!-- Envelope Icon -->
-      <svg width="100" height="60" viewBox="0 0 200 120" xmlns="http://www.w3.org/2000/svg">
-        <rect width="200" height="120" rx="10" ry="10" fill="#ffffff" />
-        <polyline points="0,0 100,60 200,0" fill="none" stroke="#00aaff" stroke-width="4" />
-      </svg>
-      <h1>Efficient Mailing Solutions</h1>
-      <p>Deliver your messages quickly and reliably to your audience.</p>
-      <a href="#" class="btn">Get Started</a>
+      <h1>Our Features</h1>
+      <p>Discover the powerful tools that drive your email automation.</p>
     </div>
   </section>
   
-  <!-- Features Section -->
-  <section class="features">
-    <div class="feature">
-      <svg width="100" height="100" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
-        <rect x="8" y="16" width="48" height="32" rx="4" ry="4" fill="none" stroke="#00aaff" stroke-width="2"/>
-        <polyline points="8,16 32,36 56,16" fill="none" stroke="#00aaff" stroke-width="2"/>
-      </svg>
-      <h3>Reliable Delivery</h3>
-      <p>Ensure your emails always reach the inbox.</p>
-    </div>
-    <div class="feature">
-      <svg width="100" height="100" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
-        <circle cx="32" cy="32" r="28" fill="none" stroke="#00aaff" stroke-width="2"/>
-        <path d="M32,32 L32,4 A28,28 0 0,1 60,32 Z" fill="#00aaff"/>
-        <line x1="32" y1="32" x2="60" y2="32" stroke="#ffffff" stroke-width="2"/>
-      </svg>
-      <h3>Smart Segmentation</h3>
-      <p>Target the right audience with precision.</p>
-    </div>
-    <div class="feature">
-      <svg width="100" height="100" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
-        <rect x="10" y="30" width="8" height="24" fill="#00aaff"/>
-        <rect x="26" y="20" width="8" height="34" fill="#00aaff"/>
-        <rect x="42" y="10" width="8" height="44" fill="#00aaff"/>
-      </svg>
-      <h3>Detailed Reporting</h3>
-      <p>Monitor your campaigns with in-depth analytics.</p>
+  <!-- Features Content -->
+  <section class="features-section">
+    <h2>Key Features</h2>
+    <div class="features-cards">
+      <!-- Feature Card 1: Reliable Delivery -->
+      <div class="feature-card">
+        <svg width="80" height="80" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+          <rect x="8" y="16" width="48" height="32" rx="4" ry="4" fill="none" stroke="#00aaff" stroke-width="2"/>
+          <polyline points="8,16 32,36 56,16" fill="none" stroke="#00aaff" stroke-width="2"/>
+        </svg>
+        <h3>Reliable Delivery</h3>
+        <p>Ensure your emails always reach the inbox without delay.</p>
+      </div>
+      <!-- Feature Card 2: Smart Segmentation -->
+      <div class="feature-card">
+        <svg width="80" height="80" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="32" cy="32" r="28" fill="none" stroke="#00aaff" stroke-width="2"/>
+          <path d="M32,32 L32,4 A28,28 0 0,1 60,32 Z" fill="#00aaff"/>
+          <line x1="32" y1="32" x2="60" y2="32" stroke="#ffffff" stroke-width="2"/>
+        </svg>
+        <h3>Smart Segmentation</h3>
+        <p>Target specific groups with precision and personalized campaigns.</p>
+      </div>
+      <!-- Feature Card 3: Detailed Reporting -->
+      <div class="feature-card">
+        <svg width="80" height="80" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+          <rect x="10" y="30" width="8" height="24" fill="#00aaff"/>
+          <rect x="26" y="20" width="8" height="34" fill="#00aaff"/>
+          <rect x="42" y="10" width="8" height="44" fill="#00aaff"/>
+        </svg>
+        <h3>Detailed Reporting</h3>
+        <p>Gain insights from comprehensive analytics and performance metrics.</p>
+      </div>
+      <!-- Feature Card 4: Automated Campaigns -->
+      <div class="feature-card">
+        <svg width="80" height="80" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="32" cy="32" r="28" fill="none" stroke="#00aaff" stroke-width="2"/>
+          <polyline points="32,16 32,32 44,38" fill="none" stroke="#00aaff" stroke-width="2"/>
+        </svg>
+        <h3>Automated Campaigns</h3>
+        <p>Schedule and automate your email campaigns for maximum efficiency.</p>
+      </div>
+      <!-- Feature Card 5: Customizable Templates -->
+      <div class="feature-card">
+        <svg width="80" height="80" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+          <rect x="10" y="10" width="44" height="44" rx="5" ry="5" fill="none" stroke="#00aaff" stroke-width="2"/>
+          <line x1="10" y1="22" x2="54" y2="22" stroke="#00aaff" stroke-width="2"/>
+          <line x1="10" y1="34" x2="54" y2="34" stroke="#00aaff" stroke-width="2"/>
+        </svg>
+        <h3>Customizable Templates</h3>
+        <p>Design eye-catching emails with fully customizable templates.</p>
+      </div>
     </div>
   </section>
   
